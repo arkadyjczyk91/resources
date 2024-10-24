@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: resource-server
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://login.microsoftonline.com/{tenant}/v2.0  # Zamień {tenant} na odpowiedni identyfikator swojego tenant'a
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/resource_db
+    username: user
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'  # Umożliwia dostęp do wszystkich punktów końcowych zarządzania
+
+# Opcjonalne ustawienia
+logging:
+  level:
+    org.springframework: INFO  # Ustaw poziom logowania dla Spring
+    com.arkadia: DEBUG  # Ustaw poziom logowania dla Twojego pakietu (np. logika Twojej aplikacji)
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  # URL do Eureka Server
+    instance:
+      prefer-ip-address: true  # Opcjonalnie: Używanie adresu IP zamiast nazwy hosta
