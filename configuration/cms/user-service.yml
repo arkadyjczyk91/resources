@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        userModuleAssignmentInput:
+          destination: user-module-assignment
+          content-type: application/json
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/user_db
+    username: user
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: https://login.microsoftonline.com/daabb5ae-8e62-4b23-9856-e92092b5d08f/v2.0

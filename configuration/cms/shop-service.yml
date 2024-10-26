@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: shop-service
+
+  cloud:
+    stream:
+      bindings:
+        userModuleAssignmentOutput:
+          destination: user-module-assignment
+          content-type: application/json
+
+
+  datasource:
+    url: jdbc:postgresql://postgres:5432/shop_db
+    username: user
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true

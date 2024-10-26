@@ -4,9 +4,10 @@ spring:
 
   security:
     oauth2:
-      resourceserver:
+      resource-server:
         jwt:
-          issuer-uri: https://login.microsoftonline.com/{tenant}/v2.0  # Zamień {tenant} na odpowiedni identyfikator swojego tenant'a
+          issuer-uri: https://login.microsoftonline.com/daabb5ae-8e62-4b23-9856-e92092b5d08f/v2.0
+# Zamień {tenant} na odpowiedni identyfikator swojego tenant'a
 
   datasource:
     url: jdbc:postgresql://localhost:5432/resource_db
